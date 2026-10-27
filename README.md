@@ -9,7 +9,7 @@
 
 ## Overview
 
-VYRO Studio is a **new, independent** streaming and recording application for Windows (with future cross-platform goals). It is **not a fork, rebrand, or derivative** of OBS Studio. The project is in the **research and architectural design phase** — no executable code exists yet.
+VYRO Studio is a **new, independent** streaming and recording application for Windows (with future cross-platform goals). It is **not a fork, rebrand, or derivative** of OBS Studio. The project has an **M0 minimal prototype** (C++20, CMake 4.0, MSVC x64) that builds and passes CI.
 
 The goal is to build a clean-room implementation that learns from OBS Studio's architectural patterns (plugin model, encoder abstraction, scene graph, output pipeline) while making different technical choices:
 - Modern UI framework (e.g., ImGui, WebGPU, or native WinUI)
@@ -25,17 +25,20 @@ The goal is to build a clean-room implementation that learns from OBS Studio's a
 | Plugin ABI | 📝 Specification draft |
 | Encoder abstraction | 📝 Specification draft |
 | UI framework selection | 🔍 Evaluating |
-| Build system / CI | 📋 Planned |
-| Executable prototype | ❌ Not started |
+| Build system / CI | ✅ Working (CMake 4.0, MSVC x64, GitHub Actions) |
+| Minimal prototype (M0) | ✅ Complete — version printing, `--version-check` and default output |
+| Recording / streaming | ❌ Not implemented |
+| Audio/video capture | ❌ Not implemented |
+| GUI | ❌ Not implemented |
 
-**No downloads, installers, or runnable builds are available.**
+**M0 is a minimal C++20 prototype only.** It prints a version string and handles `--version-check` and default version output. It does not capture audio or video, encode, stream, or render any UI. No downloads, installers, or full application builds are available.
 
 ## Research Foundation
 
 Architectural observations were derived from **read-only static analysis** of OBS Studio 32.2.2 binaries (`obs64.exe`, `obs.dll`) using **[REA (Reverse Engineering Anything)](https://github.com/morluto/rea)** — an MIT-licensed static analysis toolkit by **morluto** (https://rea.tools/).
 
 Key verified observations (no decompilation, no execution):
-- `obs.dll` exports **1,784 public symbols** forming the libobs plugin ABI (scenes, sources, filters, audio, video, encoders, outputs, settings, plugin loading).
+- `obs.dll` exports **1,784 public symbols** (observed from the analyzed OBS 32.2.2 binary). These are observed export names; they do not establish a stable or fully understood plugin ABI (calling conventions, structure layouts, lifetime semantics, versioning).
 - Import graph shows Qt6 GUI layer over a native C++ core; FFmpeg (`avcodec`, `avformat`, `swscale`, `swresample`), `libcurl`, `w32-pthreads`, and DXGI for capture.
 - Security hardening: GS stack cookies, CFG (`IMAGE_GUARD_CF_INSTRUMENTED`), XFG; TLS present but no callbacks.
 - Digital signature: OBS Project, LLC (DigiCert ECDSA SHA-384 chain).

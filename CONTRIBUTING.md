@@ -1,6 +1,6 @@
 # Contributing to VYRO Studio
 
-Thank you for your interest in contributing to VYRO Studio. This project is in the **research and architectural design phase** — no executable code exists yet.
+Thank you for your interest in contributing to VYRO Studio. This project has an **M0 minimal prototype** (C++20, CMake 4.0, MSVC x64) that builds and passes CI on Windows. The prototype prints a version string and handles basic CLI flags. No recording, streaming, audio/video capture, or GUI functionality exists yet.
 
 ## How to Contribute
 
@@ -40,7 +40,7 @@ When implementation begins:
 ## Code Style
 
 - C/C++: C++20, clang-format (config in `.clang-format` when added)
-- CMake: 3.20+, modern syntax
+- CMake: 4.0+, modern syntax
 - Markdown: wrap at 100 chars, use relative links
 
 ## Reporting Issues

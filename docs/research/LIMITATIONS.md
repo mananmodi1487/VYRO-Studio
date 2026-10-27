@@ -164,6 +164,10 @@ Without a decompiler:
 
 ---
 
+**Note:** Export names alone do not prove ABI stability (calling conventions, structure layouts, lifetime semantics, versioning). Observed symbols are from a single binary snapshot.
+
+---
+
 ## Path Forward for VYRO Studio
 
 1. **Design from first principles** using the export *names* as a domain vocabulary, not a signature contract.

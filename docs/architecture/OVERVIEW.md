@@ -25,12 +25,14 @@
 │         ▼                 ▼                 ▼                   │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐             │
 │  │  FFmpeg     │  │  libcurl    │  │  Platform   │             │
-│  │  (avcodec,  │  │  (RTMP/     │  │  Capture    │             │
-│  │   avformat, │  │   SRT/HLS)  │  │  (DXGI/     │             │
+│  │  (avcodec,  │  │  (HTTP/     │  │  Capture    │             │
+│  │   avformat, │  │   transport)│  │  (DXGI/     │             │
 │  │   swscale)  │  │             │  │   VAAPI)    │             │
 │  └─────────────┘  └─────────────┘  └─────────────┘             │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+**Note:** The diagram above shows libcurl as an HTTP transport layer. It is **not** the implementation of RTMP, SRT, or HLS streaming protocols. Those protocols require separate protocol-specific implementations. Output protocol implementations and their dependencies remain to be evaluated before media work begins.
 
 ## Core Modules
 
