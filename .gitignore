@@ -1,0 +1,85 @@
+# VYRO Studio — .gitignore
+
+# Build artifacts
+build/
+out/
+dist/
+*.obj
+*.o
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.idb
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.cmake~
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS
+*.lnk
+
+# Secrets / Credentials (never commit)
+*.env
+*.env.local
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+*.p7b
+*.p7c
+*.jks
+*.keystore
+*.truststore
+*.ovpn
+*.ssh/
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.ppk
+
+# Logs
+*.log
+logs/
+*.tmp
+*.temp
+
+# Package managers
+node_modules/
+packages/
+vendor/
+.target/
+target/
+
+# Testing / Coverage
+coverage/
+.nyc_output/
+*.gcno
+*.gcda
+*.gcov
+
+# Documentation build
+docs/_build/
+site/
+
+# REA / Reverse engineering artifacts (local only)
+*.rea.json
+*.rea.tmp
+rea-out*.json

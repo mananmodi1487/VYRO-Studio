@@ -1,0 +1,78 @@
+name: Feature Request
+description: Propose a new capability, architectural change, or research direction
+title: "[FEAT] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a feature. Please describe the motivation and desired outcome.
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this feature needed? What problem does it solve?
+      placeholder: |
+        Currently, VYRO Studio lacks...
+        This would enable...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe the feature, API, or change in detail.
+      placeholder: |
+        Add a new `vyro_encoder_*` function...
+        Introduce a new plugin type...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other approaches you've considered and why they were not chosen.
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact & Scope
+      description: |
+        Which modules/docs are affected? Any breaking changes? Migration path?
+      placeholder: |
+        - Module: vyro-core / vyro-abi / vyro-plugins / vyro-gui / docs
+        - Breaking: Yes/No
+        - Migration: ...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Roadmap Phase
+      description: Which phase does this align with?
+      options:
+        - "Phase 0: Foundations"
+        - "Phase 1: Core Skeleton"
+        - "Phase 2: Media Pipeline"
+        - "Phase 3: GUI & UX"
+        - "Phase 4: Hardening & Polish"
+        - "Ongoing / Cross-cutting"
+        - "Research / RFC"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I have read the CONTRIBUTING.md and ROADMAP.md
+          required: true
+        - label: This does not propose copying OBS code/assets without license review
+          required: true

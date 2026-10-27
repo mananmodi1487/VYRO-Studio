@@ -1,0 +1,42 @@
+# VYRO Studio — .editorconfig
+# https://editorconfig.org
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 100
+
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 0
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.{json,jsonc}]
+indent_size = 2
+
+[*.{cmake,CMakeLists.txt}]
+indent_size = 2
+
+[*.{cpp,h,hpp,cc,cxx}]
+indent_size = 4
+
+[*.{cs,fs,py,rs,js,ts,tsx,jsx}]
+indent_size = 2
+
+[*.{sh,bash,zsh,fish}]
+indent_size = 4
+end_of_line = lf
+
+[*.bat]
+end_of_line = crlf
+
+[*.{sln,csproj,vcxproj,vcxproj.filters,props,targets}]
+end_of_line = crlf
